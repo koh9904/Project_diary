@@ -24,7 +24,7 @@ class DiaryWrite : Fragment() {
 
         val cancel = view.findViewById<Button>(R.id.cancel)
         cancel.setOnClickListener {
-            Toast.makeText(requireContext(), "Canceled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Canceled", Toast.LENGTH_LONG).show()
         }
         return view
     }
