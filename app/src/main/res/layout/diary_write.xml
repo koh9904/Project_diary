@@ -29,49 +29,47 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="401dp"
+        android:layout_height="310dp"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/diarytitle"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/todaydiary"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/diarytitle"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="4dp"
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
-        android:gravity="center|start"
-        android:text="Title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/contextEditText"
+        android:ems="10"
+        android:inputType="text"
+        android:text="title"
+        app:layout_constraintBottom_toTopOf="@+id/content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/contextEditText"
-        android:layout_width="398dp"
-        android:layout_height="203dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/content"
+        android:layout_width="409dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:ems="10"
         android:inputType="text|textMultiLine"
         android:text="Content"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diarytitle"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         tools:ignore="HardcodedText" />
 
     <Button
@@ -85,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contextEditText"
+        app:layout_constraintTop_toBottomOf="@+id/content"
         tools:ignore="HardcodedText" />
 
     <Button
@@ -99,7 +97,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/save"
-        app:layout_constraintTop_toBottomOf="@+id/contextEditText"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        app:layout_constraintVertical_bias="0.523"
         tools:ignore="HardcodedText" />
 
 

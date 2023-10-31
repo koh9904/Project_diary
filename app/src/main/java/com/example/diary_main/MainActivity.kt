@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> {
-                    print("abc")
-
                     DiaryList()
                 }
                 1 -> DiaryWrite()
