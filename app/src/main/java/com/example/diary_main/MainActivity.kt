@@ -22,16 +22,33 @@ class MainActivity : AppCompatActivity() {
         pager.adapter = TabAdapter()
 
         TabLayoutMediator(tabLayout, pager) {tab, position ->
-            tab.text = when (position) {
-                0 -> "List"
-                1 -> "Write"
-                else -> ""
+            when (position) {
+                0-> {
+                    tab.text = "Main"
+                    val drawable = resources.getDrawable(R.drawable.baseline_calendar_month_24,theme)
+                    tab.icon = drawable
+                }
+                1-> {
+                    tab.text = "Diary"
+                    val drawable = resources.getDrawable(R.drawable.baseline_border_color_24,theme)
+                    tab.icon = drawable
+                }
+                2-> {
+                    tab.text = "Friend"
+                    val drawable = resources.getDrawable(R.drawable.baseline_people_24,theme)
+                    tab.icon = drawable
+                }
+                3-> {
+                    tab.text = "Setting"
+                    val drawable = resources.getDrawable(R.drawable.baseline_settings_24,theme)
+                    tab.icon = drawable
+                }
             }
         }.attach()
     }
 
     inner class TabAdapter : FragmentStateAdapter(supportFragmentManager,lifecycle) { //unittest
-        override fun getItemCount(): Int = 2
+        override fun getItemCount(): Int = 4
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
@@ -39,6 +56,8 @@ class MainActivity : AppCompatActivity() {
                     DiaryList()
                 }
                 1 -> DiaryWrite()
+                2 -> DiaryList()
+                3 -> DiaryWrite()
                 else -> throw IllegalStateException("Invalid Position $position")
             }
         }
