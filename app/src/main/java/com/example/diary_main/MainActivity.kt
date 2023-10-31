@@ -52,12 +52,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> {
-                    DiaryList()
-                }
-                1 -> DiaryWrite()
-                2 -> DiaryList()
-                3 -> DiaryWrite()
+                0 -> DiaryWrite()
+                1 -> DiaryList()
+                2 -> DiaryWrite()
+                3 -> DiaryList()
                 else -> throw IllegalStateException("Invalid Position $position")
             }
         }
