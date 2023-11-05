@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "diary_main"
+rootProject.name = "Object-Oriented Programming"
 include(":app")
  

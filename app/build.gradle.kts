@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.diary_main"
+    namespace = "com.example.object_orientedprogramming"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.diary_main"
+        applicationId = "com.example.object_orientedprogramming"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
 }
 
 dependencies {
