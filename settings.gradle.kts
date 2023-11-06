@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "diary_main"
+rootProject.name = "real_diary_project"
 include(":app")
  

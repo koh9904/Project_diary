@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.diary_main"
-    compileSdk = 34
+    namespace = "com.example.real_diary_project"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.diary_main"
+        applicationId = "com.example.real_diary_project"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    viewBinding{
+        enable = true
+    }
+
+
 }
 
 dependencies {
