@@ -1,4 +1,4 @@
-package com.example.real_diary_project
+package com.example.diary_main
 
 import org.junit.Test
 

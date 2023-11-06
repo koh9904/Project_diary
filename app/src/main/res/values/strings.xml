@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">real_diary_project</string>
+    <string name="app_name">diary_main</string>
+    <string name="todays_diary">Today\'s diary</string>
 </resources>

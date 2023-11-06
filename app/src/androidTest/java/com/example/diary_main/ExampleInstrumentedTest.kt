@@ -1,4 +1,4 @@
-package com.example.real_diary_project
+package com.example.diary_main
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.real_diary_project", appContext.packageName)
+        assertEquals("com.example.diary_main", appContext.packageName)
     }
 }
