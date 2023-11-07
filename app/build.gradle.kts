@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.example.object_orientedprogramming"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +37,7 @@ android {
     viewBinding {
         enable = true
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
