@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Object-Oriented Programming</string>
+    <string name="hello_blank_fragment">안녕 빈 프래그먼트</string>
     <string name="main">메인</string>
     <string name="diarylist">일기 목록</string>
     <string name="friend">친구</string>
