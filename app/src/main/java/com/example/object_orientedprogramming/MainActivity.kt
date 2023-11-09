@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(
                 when (it.itemId) {
                     R.id.tab1 -> MainFragment()
-                    R.id.tab2 -> DiaryFragment()
+                    R.id.tab2 -> DiaryListFragment()
                     R.id.tab3 -> FriendsFragment()
                     else -> SettingFragment()
                 }

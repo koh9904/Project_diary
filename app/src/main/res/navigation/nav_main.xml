@@ -29,14 +29,14 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_diaryFragment2"
-            app:destination="@id/diaryFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_friendsFragment2"
             app:destination="@id/friendsFragment" />
         <action
             android:id="@+id/action_mainFragment_to_settingFragment3"
             app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_diaryListFragment"
+            app:destination="@id/diaryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -59,18 +59,30 @@
         android:label="fragment_diary"
         tools:layout="@layout/fragment_diary" >
         <action
-            android:id="@+id/action_diaryFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_diaryFragment_to_friendsFragment2"
-            app:destination="@id/friendsFragment" />
-        <action
-            android:id="@+id/action_diaryFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
+            android:id="@+id/action_diaryFragment_to_diaryListFragment"
+            app:destination="@id/diaryListFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFriendFragment"
         android:name="com.example.object_orientedprogramming.AddFriendFragment"
         android:label="fragment_add_friend"
         tools:layout="@layout/fragment_add_friend" />
+    <fragment
+        android:id="@+id/diaryListFragment"
+        android:name="com.example.object_orientedprogramming.DiaryListFragment"
+        android:label="fragment_diary_list"
+        tools:layout="@layout/fragment_diary_list" >
+        <action
+            android:id="@+id/action_diaryListFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_diaryListFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_diaryListFragment_to_friendsFragment"
+            app:destination="@id/friendsFragment" />
+        <action
+            android:id="@+id/action_diaryListFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
