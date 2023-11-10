@@ -6,4 +6,7 @@
     <string name="diarylist">DiaryList</string>
     <string name="friend">Friend</string>
     <string name="setting">Setting</string>
+    <string name="content">내용</string>
+    <string name="dummydate">0월0일</string>
+    <string name="diarylistTitle">Diary List</string>
 </resources>
