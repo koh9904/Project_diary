@@ -3,6 +3,7 @@ package com.example.object_orientedprogramming
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.object_orientedprogramming.diary.DiaryListFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

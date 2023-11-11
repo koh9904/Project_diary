@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryFragment"
-        android:name="com.example.object_orientedprogramming.DiaryFragment"
+        android:name="com.example.object_orientedprogramming.diary.DiaryFragment"
         android:label="fragment_diary"
         tools:layout="@layout/fragment_diary" >
         <action
@@ -69,7 +69,7 @@
         tools:layout="@layout/fragment_add_friend" />
     <fragment
         android:id="@+id/diaryListFragment"
-        android:name="com.example.object_orientedprogramming.DiaryListFragment"
+        android:name="com.example.object_orientedprogramming.diary.DiaryListFragment"
         android:label="fragment_diary_list"
         tools:layout="@layout/fragment_diary_list" >
         <action

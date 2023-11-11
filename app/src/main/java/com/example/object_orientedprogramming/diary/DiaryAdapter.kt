@@ -1,5 +1,4 @@
-package com.example.object_orientedprogramming
-
+package com.example.object_orientedprogramming.diary
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.object_orientedprogramming.R
 
-class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder> () {
-        var items = ArrayList<diaryitem> ()
+class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
+        var items = ArrayList<DiaryItem> ()
 
         inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
              var image : ImageView
@@ -21,7 +21,7 @@ class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder> () {
                  content = itemView.findViewById(R.id.content)
                  date = itemView.findViewById(R.id.date)
              }
-            fun setItem(item: diaryitem) {
+            fun setItem(item: DiaryItem) {
                 val picturePath = item.image
                 if (picturePath != null && picturePath != "") {
                     image.visibility = View.VISIBLE
@@ -50,7 +50,7 @@ class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder> () {
 
     override fun getItemCount() = items.size
 
-    fun addItem (item: diaryitem) {
+    fun addItem (item: DiaryItem) {
         items.add(item)
     }
 }
