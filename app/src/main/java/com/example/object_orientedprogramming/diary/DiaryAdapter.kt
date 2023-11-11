@@ -8,13 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.object_orientedprogramming.R
 
-class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
-        var items = ArrayList<DiaryItem> ()
-
+class DiaryAdapter(private val items: ArrayList<DiaryItem>) : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
         inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-             var image : ImageView
-             var content : TextView
-             var date : TextView
+             private val image : ImageView
+             private val content : TextView
+             private val date : TextView
 
              init {
                  image = itemView.findViewById(R.id.image)
@@ -49,8 +47,4 @@ class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
     }
 
     override fun getItemCount() = items.size
-
-    fun addItem (item: DiaryItem) {
-        items.add(item)
-    }
 }

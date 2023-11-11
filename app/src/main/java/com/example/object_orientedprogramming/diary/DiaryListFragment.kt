@@ -29,28 +29,18 @@ class DiaryListFragment : Fragment() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = layoutManager
 
-        adapter = DiaryAdapter()
+        val items = ArrayList<DiaryItem>()
+
+        items.add(DiaryItem(0, "집에 가고싶다...수업 듣기 싫다", "11월11일", "female"))
+        items.add(DiaryItem(1, "집에 가고싶다...수업 듣기 싫다", "11월10일", "female"))
+        items.add(DiaryItem(2, "집에 가고싶다...수업 듣기 싫다", "10월11일", "female"))
+        items.add(DiaryItem(3, "집에 가고싶다...수업 듣기 싫다", "10월10일", "female"))
+        items.add(DiaryItem(4, "집에 가고싶다...수업 듣기 싫다", "1월11일", "female"))
+        items.add(DiaryItem(5, "집에 가고싶다...수업 듣기 싫다", "1월10일", "female"))
+
+        adapter = DiaryAdapter(items)
 
         recyclerView.adapter = adapter
-
-        adapter.addItem(
-            DiaryItem(0, "집에 가고싶다...수업 듣기 싫다", "11월11일", "female")
-        )
-        adapter.addItem(
-            DiaryItem(1, "집에 가고싶다...수업 듣기 싫다", "11월10일", "female")
-        )
-        adapter.addItem(
-            DiaryItem(2, "집에 가고싶다...수업 듣기 싫다", "10월11일", "female")
-        )
-        adapter.addItem(
-            DiaryItem(3, "집에 가고싶다...수업 듣기 싫다", "10월10일", "female")
-        )
-        adapter.addItem(
-            DiaryItem(4, "집에 가고싶다...수업 듣기 싫다", "1월11일", "female")
-        )
-        adapter.addItem(
-            DiaryItem(5, "집에 가고싶다...수업 듣기 싫다", "1월10일", "female")
-        )
     }
 
     companion object {
