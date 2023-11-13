@@ -5,55 +5,52 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class FriendsFragment : Fragment(R.layout.fragment_friends) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FriendsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class FriendsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    val friends = arrayOf(
+        Friend("유승빈", "안녕하세요", EGender.MALE),
+        Friend("김세현", "반가워요", EGender.FEMALE),
+        Friend("김정현", "잘지내보아요", EGender.MALE),
+        Friend("세종대왕", "훈민정음", EGender.MALE),
+        Friend("아이유", "푸르던", EGender.FEMALE),
+        Friend("풍자", "호호", EGender.MALE),
+        Friend("박효신", "날아가~", EGender.MALE),
+        Friend("김철기", "객프", EGender.MALE),
+        Friend("루피", "해-삐", EGender.FEMALE),
+        Friend("카리나", "예쁘다", EGender.FEMALE)
+    )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding : FragmentFriendsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
+        binding = FragmentFriendsBinding.inflate(layoutInflater)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friends, container, false)
+        binding.recFriends.adapter = FriendsAdapter(friends)
+        binding.recFriends.layoutManager = LinearLayoutManager(context)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FriendsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FriendsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnAddFriend.setOnClickListener {
+            findNavController().navigate(R.id.action_friendsFragment_to_addFriendFragment)
+        }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
+
 }
