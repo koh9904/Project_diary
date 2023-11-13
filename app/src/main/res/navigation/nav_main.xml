@@ -42,5 +42,9 @@
         android:id="@+id/diaryListFragment"
         android:name="com.example.object_orientedprogramming.diary.DiaryListFragment"
         android:label="fragment_diary_list"
-        tools:layout="@layout/fragment_diary_list" />
+        tools:layout="@layout/fragment_diary_list" >
+        <action
+            android:id="@+id/action_diaryListFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+    </fragment>
 </navigation>
