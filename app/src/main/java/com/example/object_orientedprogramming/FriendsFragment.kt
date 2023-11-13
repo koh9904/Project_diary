@@ -9,9 +9,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
-
 class FriendsFragment : Fragment(R.layout.fragment_friends) {
-
     val friends = arrayOf(
         Friend("유승빈", "안녕하세요", EGender.MALE),
         Friend("김세현", "반가워요", EGender.FEMALE),
@@ -31,7 +29,6 @@ class FriendsFragment : Fragment(R.layout.fragment_friends) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentFriendsBinding.inflate(layoutInflater)
 
         // Inflate the layout for this fragment

@@ -10,15 +10,14 @@ import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
 
 class AddFriendFragment : Fragment() {
 
-    var binding : FragmentAddFriendBinding? = null
-
+    lateinit var binding : FragmentAddFriendBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddFriendBinding.inflate(layoutInflater)
-        return binding?.root
+        return binding.root
     }
 
 }
