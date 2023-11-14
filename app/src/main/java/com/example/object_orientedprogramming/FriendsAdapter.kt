@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.object_orientedprogramming.databinding.ListFriendsBinding
 
-class FriendsAdapter(val friends: Array<Friend>) : RecyclerView.Adapter<FriendsAdapter.Holder>() {
+class FriendsAdapter(private val friends: Array<Friend>) : RecyclerView.Adapter<FriendsAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ListFriendsBinding.inflate(LayoutInflater.from(parent.context))

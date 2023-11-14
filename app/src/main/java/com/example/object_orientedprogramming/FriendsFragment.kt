@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
+import com.example.object_orientedprogramming.viewmodel.UserViewModel
+
 class FriendsFragment : Fragment(R.layout.fragment_friends) {
+
     val friends = arrayOf(
         Friend("유승빈", "안녕하세요", EGender.MALE),
         Friend("김세현", "반가워요", EGender.FEMALE),
@@ -22,6 +26,8 @@ class FriendsFragment : Fragment(R.layout.fragment_friends) {
         Friend("루피", "해-삐", EGender.FEMALE),
         Friend("카리나", "예쁘다", EGender.FEMALE)
     )
+
+    val viewModel: UserViewModel by viewModels()
 
     lateinit var binding : FragmentFriendsBinding
 
