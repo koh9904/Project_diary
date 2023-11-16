@@ -25,7 +25,7 @@ class FriendsFragment : Fragment(R.layout.fragment_friends) {
         Friend("박효신", "날아가~", EGender.MALE),
         Friend("김철기", "객프", EGender.MALE),
         Friend("루피", "해-삐", EGender.FEMALE),
-        Friend("카리나", "예쁘다", EGender.FEMALE)
+        Friend("카리나", "아름답다", EGender.FEMALE)
     )
 
     val viewModel: UserViewModel by viewModels()
