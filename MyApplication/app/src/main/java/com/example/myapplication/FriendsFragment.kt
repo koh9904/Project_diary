@@ -12,7 +12,7 @@ import com.example.myapplication.databinding.FragmentFriendsBinding
 import com.example.myapplication.viewmodel.UserViewModel
 import com.example.object_orientedprogramming.EGender
 import com.example.object_orientedprogramming.Friend
-
+//ㅎㅇ
 class FriendsFragment : Fragment(R.layout.fragment_friends) {
 
     val friends = arrayOf(
