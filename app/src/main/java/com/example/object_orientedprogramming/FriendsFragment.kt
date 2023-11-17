@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.object_orientedprogramming.FriendFrameFragment.Companion.NAV_T0_ADD_SCREEN
 import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
 import com.example.object_orientedprogramming.viewmodel.UserViewModel
 
 class FriendsFragment : Fragment(R.layout.fragment_friends) {
+    private var _binding : FragmentFriendsBinding? = null
+    private val binding get() = _binding ?: throw IllegalArgumentException("Binding Error")
+
+    val viewModel: UserViewModel by viewModels()
 
     val friends = arrayOf(
         Friend("유승빈", "안녕하세요", EGender.MALE),
@@ -27,29 +30,33 @@ class FriendsFragment : Fragment(R.layout.fragment_friends) {
         Friend("카리나", "예쁘다", EGender.FEMALE)
     )
 
-    val viewModel: UserViewModel by viewModels()
-
-    lateinit var binding : FragmentFriendsBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentFriendsBinding.inflate(layoutInflater)
-
-        // Inflate the layout for this fragment
-        binding.recFriends.adapter = FriendsAdapter(friends)
-        binding.recFriends.layoutManager = LinearLayoutManager(context)
-
+    ): View = FragmentFriendsBinding.inflate(inflater, container, false).let {
+        _binding = it
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = viewLifecycleOwner
 
+        // Inflate the layout for this fragment
+        setFriendList()
+    }
+
+    private fun setFriendList() {
+        binding.recFriends.adapter = FriendsAdapter(friends)
+        binding.recFriends.layoutManager = LinearLayoutManager(context)
         binding.btnAddFriend.setOnClickListener {
-            findNavController().navigate(R.id.action_friendsFragment_to_addFriendFragment)
+            navToAddFriend()
         }
+    }
+
+    private fun navToAddFriend() {
+        requireActivity().supportFragmentManager
+            .setFragmentResult(NAV_T0_ADD_SCREEN, Bundle())
     }
 
     override fun onDestroyView() {

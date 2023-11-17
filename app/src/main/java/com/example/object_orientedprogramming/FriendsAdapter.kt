@@ -1,11 +1,10 @@
 package com.example.object_orientedprogramming
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.object_orientedprogramming.databinding.ListFriendsBinding
-//gd
+
 class FriendsAdapter(private val friends: Array<Friend>) : RecyclerView.Adapter<FriendsAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {

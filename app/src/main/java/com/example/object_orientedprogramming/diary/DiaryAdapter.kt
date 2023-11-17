@@ -1,60 +1,34 @@
 package com.example.object_orientedprogramming.diary
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.object_orientedprogramming.R
+import com.example.object_orientedprogramming.databinding.ListItemBinding
 import com.example.object_orientedprogramming.diary.etc.DiaryItem
 
-class DiaryAdapter(private val items: ArrayList<DiaryItem>, private val activity: FragmentActivity) : RecyclerView.Adapter<DiaryAdapter.ViewHolder>() {
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        internal val card: CardView
-        private val image: ImageView
-        private val content: TextView
-        private val date: TextView
+/**
+ * RecyclerView에 설정해 줄 RecyclerView.Adapter 입니다.
+ **/
 
-        init {
-            card = itemView.findViewById(R.id.card)
-            image = itemView.findViewById(R.id.image)
-            content = itemView.findViewById(R.id.content)
-            date = itemView.findViewById(R.id.date)
-        }
+class DiaryAdapter(private val onClickItem: (DiaryItem) -> Unit) : RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
+    private var diaries = mutableListOf<DiaryItem>()
 
-        fun setItem(item: DiaryItem) {
-            val picturePath = item.image
-            if (picturePath != "") {
-                image.visibility = View.VISIBLE
-                image.setImageResource(R.drawable.female)
-            } else {
-                image.visibility = View.GONE
-                image.setImageResource(R.drawable.female)
-            }
-
-            content.text = item.content
-            date.text = item.date
-        }
-    }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-        return ViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiaryViewHolder {
+        val binding = ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DiaryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
-        holder.setItem(item)
+    override fun getItemCount(): Int = diaries.count()
 
-        holder.card.setOnClickListener {
-            // Log.d("DiaryListFragment", "Selected :" + item.id)
-            val fragment = DiaryFragment(item)
-
-            activity.supportFragmentManager.beginTransaction().replace(R.id.fl, fragment).commit()
-        }
+    override fun onBindViewHolder(holder: DiaryViewHolder, position: Int) {
+        val diaryItem = diaries[position]
+        holder.binding.diaryItem = diaryItem
+        holder.binding.card.setOnClickListener { onClickItem(diaryItem) }
     }
-    override fun getItemCount() = items.size
+
+    fun changeDiaryData(diaries: List<DiaryItem>) {
+        this.diaries = diaries.toMutableList()
+    }
+
+    class DiaryViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root)
 }

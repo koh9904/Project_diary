@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.object_orientedprogramming.databinding.FragmentAddFriendBinding
-import com.example.object_orientedprogramming.databinding.FragmentFriendsBinding
 
 class AddFriendFragment : Fragment() {
 

@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -37,6 +39,10 @@ android {
 
     viewBinding {
         enable = true
+    }
+    
+    buildFeatures {
+        dataBinding = true
     }
     buildToolsVersion = "34.0.0"
 }
