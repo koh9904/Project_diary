@@ -42,5 +42,22 @@
         android:id="@+id/diaryListFragment"
         android:name="com.example.myapplication.DiaryListFragment"
         android:label="fragment_diary_list"
-        tools:layout="@layout/fragment_diary_list2" />
+        tools:layout="@layout/fragment_diary_list" >
+        <action
+            android:id="@+id/action_diaryListFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.example.myapplication.DiaryFragment"
+        android:label="DiaryFragment"
+        tools:layout="@layout/fragment_diary">
+        <action
+            android:id="@+id/action_diaryFragment3_to_diaryListFragment"
+            app:destination="@id/diaryListFragment" />
+        <argument
+            android:name="diary"
+            app:argType="com.example.myapplication.DiaryItem"
+            app:nullable="true" />
+    </fragment>
 </navigation>
