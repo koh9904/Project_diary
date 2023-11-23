@@ -17,11 +17,13 @@ class UserRepository {
                 user.postValue( snapshot.value.toString() )
             }
 
+
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
         })
     }
+
 
     fun postUser(newValue: String) {
         userRef.setValue(newValue)
