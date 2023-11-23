@@ -16,8 +16,7 @@ class UserRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 user.postValue( snapshot.value.toString() )
             }
-
-
+            
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
