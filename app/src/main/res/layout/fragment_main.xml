@@ -39,5 +39,11 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
