@@ -1,7 +1,4 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">finalfinal_diary</string>
-=======
     <string name="app_name">My Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -16,5 +13,4 @@
     <string name="story">내용</string>
     <string name="todaydate">20OO년O월O일</string>
     <string name="todaydiary">오늘의 일기</string>
->>>>>>> f7e8ff9a928f857affcfe738718e9fd821e7bc86
 </resources>
