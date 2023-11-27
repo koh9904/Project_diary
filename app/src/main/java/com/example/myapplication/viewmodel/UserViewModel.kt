@@ -8,5 +8,4 @@ class UserViewModel: ViewModel() {
     private val _user = MutableLiveData<String>("안녕하세요")
     val user : LiveData<String> get() = _user
 
-
 }

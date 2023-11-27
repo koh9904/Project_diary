@@ -32,7 +32,11 @@
         android:id="@+id/settingFragment"
         android:name="com.example.myapplication.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addFriendFragment"
         android:name="com.example.myapplication.AddFriendFragment"
@@ -60,4 +64,9 @@
             app:argType="com.example.myapplication.DiaryItem"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.myapplication.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>
