@@ -38,9 +38,6 @@ class MainFragment : Fragment() {
         binding?.dayText?.text = todayDate
         viewModel.setSelectedDate(todayDate)
 
-        binding?.dayText?.text = todayDate
-        viewModel.setSelectedDate(todayDate)
-
         viewModel.content.observe(viewLifecycleOwner){content->
             binding?.editTextText?.text = Editable.Factory.getInstance().newEditable(content)
         }

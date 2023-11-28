@@ -34,8 +34,11 @@ class SettingFragment : Fragment() {
         }
 
         binding?.btnSet?.setOnClickListener {
-            binding?.txtSettingName?.text = binding?.txtInputName?.editableText
+            /*binding?.txtSettingName?.text = binding?.txtInputName?.editableText
             binding?.txtSettingIm?.text = binding?.txtInputIm?.editableText
+             */
+            val userName = binding?.txtInputName?.text.toString()
+            viewModel.saveName(userName)
         }
     }
 }

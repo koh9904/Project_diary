@@ -7,26 +7,23 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class CalendarContentRepository {
+class SettingRepository {
     private val database = Firebase.database
-    private val diaryRef = database.getReference("user").child("이름").child("날짜")
+    private val nameRef = database.getReference("user")
 
-    fun observeContent(date: String, content: MutableLiveData<String>){
-        diaryRef.child(date).addValueEventListener(object: ValueEventListener{
+    fun observeName(name: MutableLiveData<String>){
+        nameRef.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                content.postValue(snapshot.value?.toString() ?: "")
+                name.postValue(snapshot.value?.toString() ?: "")
             }
 
             override fun onCancelled(error: DatabaseError) {
             }
         })
+
     }
 
-    fun postContent(date: String, newValue: String){
-        diaryRef.child(date).setValue(newValue)
-    }
-
-    fun deleteContent(date: String){
-        diaryRef.child(date).removeValue()
+    fun postName(newName: String){
+        nameRef.setValue(newName)
     }
 }
