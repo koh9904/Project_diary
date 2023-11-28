@@ -55,13 +55,41 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/txt_input_introduction"
+            android:id="@+id/txt_input_im"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
             android:text="자개소개 입력"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="수정" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_setting_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="홍길동"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_prof" />
+
+    <TextView
+        android:id="@+id/txt_setting_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="하이"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_setting_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
