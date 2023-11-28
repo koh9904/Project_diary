@@ -3,14 +3,11 @@ package com.example.myapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ListFriendsBinding
 import com.example.object_orientedprogramming.EGender
-import com.example.object_orientedprogramming.Friend
 
-class FriendsAdapter(private val friends: Array<Friend>) : RecyclerView.Adapter<FriendsAdapter.Holder>() {
-
+class AddFriendsAdapter(private val people: Array<People>) : RecyclerView.Adapter<AddFriendsAdapter.Holder>(){
 
     interface OnItemClickListener {
         fun onItemClick(view: View, position: Int)
@@ -28,10 +25,10 @@ class FriendsAdapter(private val friends: Array<Friend>) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(friends[position])
+        holder.bind(people[position])
     }
 
-    override fun getItemCount() = friends.size
+    override fun getItemCount() = people.size
 
     inner class Holder(val binding: ListFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -43,13 +40,13 @@ class FriendsAdapter(private val friends: Array<Friend>) : RecyclerView.Adapter<
                 }
             }
         }
-        fun bind(friend: Friend) {
-            binding.imageView.setImageResource( when( friend.gender ) {
+        fun bind(people: People) {
+            binding.imageView.setImageResource( when( people.gender ) {
                 EGender.MALE -> R.drawable.male
                 EGender.FEMALE -> R.drawable.female
             })
-            binding.txtName.text = friend.name
-            binding.txtIm.text = friend.im
+            binding.txtName.text = people.name
+            binding.txtIm.text = people.im
         }
     }
 }
