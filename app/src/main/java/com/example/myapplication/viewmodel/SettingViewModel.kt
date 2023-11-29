@@ -1,6 +1,5 @@
 package com.example.myapplication.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,9 +17,10 @@ class SettingViewModel: ViewModel() {
     fun saveName(newName: String){
         _name.value = newName
         repository.postName(newName)
-
-
     }
 
+    fun seeName(){
+        repository.observeName(_name)
+    }
 
 }

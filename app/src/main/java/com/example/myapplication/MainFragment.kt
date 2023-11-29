@@ -17,7 +17,6 @@ import java.util.Locale
 
 class MainFragment : Fragment() {
     private val calendarViewModel: CalendarContentViewModel by activityViewModels()
-    private val settingViewModel: SettingViewModel by activityViewModels()
     private var binding: FragmentMainBinding ?= null
 
     override fun onCreateView(
@@ -57,9 +56,7 @@ class MainFragment : Fragment() {
             calendarViewModel.saveContent(diaryContent)
         }
 
-        settingViewModel.name.observe(viewLifecycleOwner){ name->
 
-        }
 
     }
 

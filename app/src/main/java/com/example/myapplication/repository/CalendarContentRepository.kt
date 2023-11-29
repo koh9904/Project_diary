@@ -9,11 +9,10 @@ import com.google.firebase.ktx.Firebase
 
 class CalendarContentRepository {
     private val database = Firebase.database
-    private val diaryRef = database.getReference("user").child("이름").child("날짜")
+    private val diaryRef = database.getReference("날짜")
 
     fun observeContent(date: String, content: MutableLiveData<String>){
-        val userName = "이름"
-        diaryRef.child(userName).child(date).addValueEventListener(object: ValueEventListener{
+        diaryRef.child(date).addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 content.postValue(snapshot.value?.toString() ?: "")
             }
@@ -24,8 +23,7 @@ class CalendarContentRepository {
     }
 
     fun postContent(date: String, newValue: String){
-        val userName = "이름"
-        diaryRef.child(userName).child(date).setValue(newValue)
+        diaryRef.child(date).setValue(newValue)
     }
 
     fun deleteContent(date: String){
