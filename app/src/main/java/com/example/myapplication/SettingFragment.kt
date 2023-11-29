@@ -26,17 +26,18 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.name.observe(viewLifecycleOwner) {
-            binding?.txtSettingName?.text = viewModel.name.value
+        viewModel.name.observe(viewLifecycleOwner) {name->
+            binding?.txtSettingName?.text = name
         }
-        viewModel.name.observe(viewLifecycleOwner) {
-            binding?.txtSettingIm?.text = viewModel.im.value
+
+        viewModel.im.observe(viewLifecycleOwner) {im->
+            binding?.txtSettingIm?.text = im
         }
 
         binding?.btnSet?.setOnClickListener {
-            /*binding?.txtSettingName?.text = binding?.txtInputName?.editableText
+            binding?.txtSettingName?.text = binding?.txtInputName?.editableText
             binding?.txtSettingIm?.text = binding?.txtInputIm?.editableText
-             */
+
             val userName = binding?.txtInputName?.text.toString()
             viewModel.saveName(userName)
         }

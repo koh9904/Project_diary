@@ -12,7 +12,7 @@ class SettingRepository {
     private val nameRef = database.getReference("user")
 
     fun observeName(name: MutableLiveData<String>){
-        nameRef.addValueEventListener(object : ValueEventListener{
+        nameRef.child("이름").addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 name.postValue(snapshot.value?.toString() ?: "")
             }
@@ -24,6 +24,7 @@ class SettingRepository {
     }
 
     fun postName(newName: String){
-        nameRef.setValue(newName)
+        nameRef.child("이름").setValue(newName)
     }
+
 }

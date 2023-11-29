@@ -12,7 +12,8 @@ class CalendarContentRepository {
     private val diaryRef = database.getReference("user").child("이름").child("날짜")
 
     fun observeContent(date: String, content: MutableLiveData<String>){
-        diaryRef.child(date).addValueEventListener(object: ValueEventListener{
+        val userName = "이름"
+        diaryRef.child(userName).child(date).addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 content.postValue(snapshot.value?.toString() ?: "")
             }
@@ -23,7 +24,8 @@ class CalendarContentRepository {
     }
 
     fun postContent(date: String, newValue: String){
-        diaryRef.child(date).setValue(newValue)
+        val userName = "이름"
+        diaryRef.child(userName).child(date).setValue(newValue)
     }
 
     fun deleteContent(date: String){
