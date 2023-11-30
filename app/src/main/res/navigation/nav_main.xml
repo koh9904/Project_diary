@@ -27,17 +27,28 @@
         <action
             android:id="@+id/action_friendsFragment_to_addFriendFragment"
             app:destination="@id/addFriendFragment" />
+        <action
+            android:id="@+id/action_friendsFragment_to_friendMainFragment"
+            app:destination="@id/friendMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.myapplication.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addFriendFragment"
         android:name="com.example.myapplication.AddFriendFragment"
         android:label="fragment_add_friend"
-        tools:layout="@layout/fragment_add_friend" />
+        tools:layout="@layout/fragment_add_friend" >
+        <action
+            android:id="@+id/action_addFriendFragment_to_friendMainFragment2"
+            app:destination="@id/friendMainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/diaryListFragment"
         android:name="com.example.myapplication.DiaryListFragment"
@@ -60,4 +71,14 @@
             app:argType="com.example.myapplication.DiaryItem"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.myapplication.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
+    <fragment
+        android:id="@+id/friendMainFragment"
+        android:name="com.example.myapplication.FriendMainFragment"
+        android:label="fragment_friend_main"
+        tools:layout="@layout/fragment_friend_main" />
 </navigation>
