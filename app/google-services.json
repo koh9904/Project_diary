@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "668739321836",
+    "firebase_url": "https://object-oriented-programm-e6562-default-rtdb.firebaseio.com",
+    "project_id": "object-oriented-programm-e6562",
+    "storage_bucket": "object-oriented-programm-e6562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668739321836:android:85dcb0a042c8f93bd50ac9",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVTJUt7lkgqIdati5abulAiPFkxhOVM0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668739321836:android:630e20d458345e1fd50ac9",
+        "android_client_info": {
+          "package_name": "com.example.object_orientedprogramming"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVTJUt7lkgqIdati5abulAiPFkxhOVM0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

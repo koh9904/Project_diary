@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.myapplication.databinding.FragmentDiaryBinding
 
 
@@ -36,7 +37,7 @@ class DiaryFragment : Fragment() {
     private fun loadDiary() {
         args.diary?.let { diary ->
             binding.run {
-                tDimage.setImageResource(if(diary.image == "female") R.drawable.female else R.drawable.male)
+                Glide.with(tDimage.context).load(diary.image).into(tDimage)
                 binding.tDdate.text = diary.date
                 binding.tDcontent.setText(diary.content)
             }
