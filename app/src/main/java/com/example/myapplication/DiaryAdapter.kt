@@ -4,10 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import com.example.myapplication.databinding.ItemDiarylistBinding
 
 class DiaryAdapter(private val onClickItem: (DiaryItem) -> Unit) : RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {

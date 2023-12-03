@@ -1,6 +1,7 @@
-package com.example.myapplication
+package com.example.myapplication.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.myapplication.DiaryItem
 import com.example.myapplication.dataSource.DiaryDataSource
 import com.example.myapplication.dataSource.DiaryDataSourceImpl
 import kotlinx.coroutines.flow.MutableStateFlow

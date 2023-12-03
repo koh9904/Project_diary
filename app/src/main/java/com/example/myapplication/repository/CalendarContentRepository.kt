@@ -1,6 +1,7 @@
 package com.example.myapplication.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.example.myapplication.DiaryItem
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -9,7 +10,7 @@ import com.google.firebase.ktx.Firebase
 
 class CalendarContentRepository {
     private val database = Firebase.database
-    private val diaryRef = database.getReference("날짜")
+    private val diaryRef = database.getReference(RealtimeDatabaseRef.DIARIES_REFERENCE)
 
     fun observeContent(date: String, content: MutableLiveData<String>){
         diaryRef.child(date).addValueEventListener(object: ValueEventListener{
@@ -22,8 +23,11 @@ class CalendarContentRepository {
         })
     }
 
-    fun postContent(date: String, newValue: String){
-        diaryRef.child(date).setValue(newValue)
+    fun postContent(diary: DiaryItem){
+        diaryRef.push().key?.let { key ->
+            diaryRef.child(key)
+                .setValue(diary.copy(id = key))
+        }
     }
 
     fun deleteContent(date: String){

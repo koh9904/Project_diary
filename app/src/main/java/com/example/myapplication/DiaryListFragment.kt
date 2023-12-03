@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentDiaryListBinding
-import kotlinx.coroutines.flow.collect
+import com.example.myapplication.viewmodel.DiaryListViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale

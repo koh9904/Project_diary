@@ -5,6 +5,6 @@ import com.google.firebase.ktx.Firebase
 
 object RealtimeDatabaseRef {
     private val database = Firebase.database
-    private const val DIARIES_REFERENCE = "DIARIES_REFERENCE"
+    const val DIARIES_REFERENCE = "DIARIES_REFERENCE"
     val diariesRef = database.getReference(DIARIES_REFERENCE)
 }

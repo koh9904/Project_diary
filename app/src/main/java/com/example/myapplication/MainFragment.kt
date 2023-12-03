@@ -5,6 +5,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.myapplication.databinding.FragmentMainBinding
@@ -44,7 +45,7 @@ class MainFragment : Fragment() {
         }
 
         binding?.calendarView?.setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
-            val date: String = "${year}년 ${month + 1}월 ${dayOfMonth}일"
+            val date = "${year}년 ${month + 1}월 ${dayOfMonth}일"
             binding?.dayText?.text = date
             calendarViewModel.setSelectedDate(date)
 
@@ -54,10 +55,9 @@ class MainFragment : Fragment() {
         binding?.btnSave?.setOnClickListener {
             val diaryContent = binding?.editTextText?.text.toString()
             calendarViewModel.saveContent(diaryContent)
+            Toast.makeText(requireContext(), "일기를 작성했어요!", Toast.LENGTH_SHORT).show()
+            binding?.editTextText?.text?.clear()
         }
-
-
-
     }
 
     override fun onDestroyView() {
