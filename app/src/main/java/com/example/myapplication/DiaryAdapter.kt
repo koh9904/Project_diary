@@ -2,8 +2,8 @@ package com.example.myapplication
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.myapplication.databinding.ItemDiarylistBinding
 
 class DiaryAdapter(private val onClickItem: (DiaryItem) -> Unit) : RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
@@ -22,12 +22,9 @@ class DiaryAdapter(private val onClickItem: (DiaryItem) -> Unit) : RecyclerView.
             content.text = diaryItem.content
             card.setOnClickListener { onClickItem(diaryItem) }
             date.text = diaryItem.date
-            image.setImageDrawable(
-                ContextCompat.getDrawable(
-                    image.context,
-                    if(diaryItem.image == "female") R.drawable.female else R.drawable.male
-                )
-            )
+            Glide.with(image.context)
+                .load(diaryItem.image)
+                .into(image)
         }
     }
 
