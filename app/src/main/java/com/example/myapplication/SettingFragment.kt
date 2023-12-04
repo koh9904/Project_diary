@@ -22,7 +22,7 @@ class SettingFragment : Fragment() {
 
         return binding?.root
     }
-
+//d
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
