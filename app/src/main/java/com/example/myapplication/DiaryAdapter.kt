@@ -30,7 +30,9 @@ class DiaryAdapter(private val onClickItem: (DiaryItem) -> Unit) : RecyclerView.
 
     fun changeDiaryData(diaries: List<DiaryItem>) {
         this.diaries = diaries.toMutableList()
+        notifyDataSetChanged()
     }
+
 
     class DiaryViewHolder(val binding: ItemDiarylistBinding): RecyclerView.ViewHolder(binding.root)
 }
