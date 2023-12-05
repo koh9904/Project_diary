@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
             val diaryContent = binding?.editTextText?.text.toString()
             calendarViewModel.saveContent(diaryContent)
             Toast.makeText(requireContext(), "일기를 작성했어요!", Toast.LENGTH_SHORT).show()
-            binding?.editTextText?.text?.clear()
+            //binding?.editTextText?.text?.clear()
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.myapplication.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,14 +17,20 @@ class CalendarContentViewModel: ViewModel() {
     private val repository = CalendarContentRepository()
 
     private val _selectedDate = MutableLiveData("")
+    val selectedDate: LiveData<String> get() = _selectedDate
+
+    private val _diaryList = MutableLiveData<List<DiaryItem>>(emptyList())
+    val diaryList: LiveData<List<DiaryItem>> get() = _diaryList
+
 
     fun setSelectedDate(date: String){
         _selectedDate.value = date
         observeContentForSelectedDate()
     }
 
-    fun saveContent(newValue: String){
+    fun saveContent( newValue: String){
         _selectedDate.value?.let{ date->
+            Log.d("MyApp", "Saving content for date: $date, $newValue")
             if(newValue.isNotBlank()){
                 repository.postContent(
                     DiaryItem(
@@ -42,8 +49,15 @@ class CalendarContentViewModel: ViewModel() {
 
     private fun observeContentForSelectedDate(){
         _selectedDate.value?.let{date->
+
+            if(_content.value.isNullOrBlank()){
+                _content.value = ""
+            }
             repository.observeContent(date, _content)
+            Log.d("MyApp", "Observing content for date: $date 그리고 내용: ${_content.value}")
+
         }
     }
+
 
 }
