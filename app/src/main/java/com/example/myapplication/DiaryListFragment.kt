@@ -13,12 +13,8 @@ import com.example.myapplication.viewmodel.DiaryListViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
-/*import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.example.myapplication.databinding.FragmentDiaryListBinding
-import com.example.myapplication.viewmodel.CalendarContentViewModel
 
- */
+
 class DiaryListFragment : Fragment() {
     private var _binding: FragmentDiaryListBinding? = null
     private val binding get() = _binding ?: throw IllegalArgumentException("Binding Error")
@@ -36,18 +32,7 @@ class DiaryListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAllDiaries()
         initUI()
-        /*observeDiaryList()
-
-         */
     }
-
-
-
-    /*private fun updateRecyclerView(date: String, content: String){
-        //RecyclerView 업데이트 로직을 여기에 구현
-    }
-
-     */
 
     private fun initUI() {
         binding.diarlylist.adapter = DiaryAdapter { diary ->
@@ -62,24 +47,7 @@ class DiaryListFragment : Fragment() {
                 (binding.diarlylist.adapter as DiaryAdapter).notifyDataSetChanged()
             }
         }
-
-        /*binding.diarlylist.adapter = DiaryAdapter{ diary ->
-            DiaryListFragmentDirections.actionDiaryListFragmentToDiaryFragment(diary).let{action ->
-                findNavController().navigate(action)
-            }
-        }
-
-         */
     }
-
-    /*
-    private fun observeDiaryList(){
-        viewModel.diaryList.observe(viewLifecycleOwner){ diaryList ->
-            (binding.diarlylist.adapter as DiaryAdapter).changeDiaryData(diaryList)
-        }
-    }
-
-     */
 
     companion object {
         const val SELECTED_DIARY_DATA = "SELECTED_DIARY_DATA"

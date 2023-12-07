@@ -2,7 +2,8 @@ package com.example.myapplication
 
 import android.os.Parcelable
 import androidx.lifecycle.MutableLiveData
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+
 
 @Parcelize
 data class DiaryItem (
