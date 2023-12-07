@@ -1,71 +1,68 @@
 package com.example.myapplication
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.ListView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.FragmentFriendsBinding
-import com.example.myapplication.repository.UserRepository
-import com.example.myapplication.viewmodel.FriendViewModel
-import com.example.object_orientedprogramming.EGender
-import com.example.object_orientedprogramming.Friend
+import com.example.myapplication.repository.UserRepo
+import com.example.myapplication.viewmodel.UserViewModel
 class FriendsFragment : Fragment(R.layout.fragment_friends) {
 
+    private lateinit var adapter: FriendsAdapter
 
-    val friends = arrayOf(
-        Friend("유승빈", "안녕하세요", EGender.MALE),
-        Friend("김세현", "반가워요", EGender.FEMALE),
-        Friend("김정현", "잘지내보아요", EGender.MALE)
-    )
+    val viewModel: UserViewModel by activityViewModels()
 
-    private val repository = UserRepository()
-
-    val viewModel: FriendViewModel by activityViewModels()
-
-    lateinit var binding : FragmentFriendsBinding
+    private var binding : FragmentFriendsBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentFriendsBinding.inflate(layoutInflater)
-
-        /*
-        // Inflate the layout for this fragment
-        binding.recFriends.adapter = FriendsAdapter(friends)
-        binding.recFriends.layoutManager = LinearLayoutManager(context)
-
-         */
-
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val friendAdapter = FriendsAdapter(friends)
-        binding.recFriends.adapter = friendAdapter
-        binding.recFriends.layoutManager = LinearLayoutManager(this.activity)
+        adapter = FriendsAdapter(requireContext())
+        binding?.recFriends?.adapter = adapter
+        binding?.recFriends?.layoutManager = LinearLayoutManager(this.activity)
 
-        friendAdapter.setOnItemClickListener(object : FriendsAdapter.OnItemClickListener {
-            override fun onItemClick(view: View, position: Int) {
+        adapter.setOnItemClickListener(object : FriendsAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                viewModel.userName.value = adapter.getUserAt(position).userName
+
                 findNavController().navigate(R.id.action_friendsFragment_to_friendMainFragment)
             }
         })
 
-        binding.btnAddFriend.setOnClickListener {
+        binding?.btnAddFriend?.setOnClickListener {
             findNavController().navigate(R.id.action_friendsFragment_to_addFriendFragment)
         }
+
+        observerData()
+    }
+
+    private fun observerData() {
+        viewModel.fetchData().observe(viewLifecycleOwner, Observer {
+            adapter.setListData(it)
+            adapter.notifyDataSetChanged()
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding = null
     }
 
 }

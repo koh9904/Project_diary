@@ -1,16 +1,28 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.databinding.ListAddFriendsBinding
 import com.example.myapplication.databinding.ListFriendsBinding
-import com.example.object_orientedprogramming.EGender
 
-class AddFriendsAdapter(private val people: Array<People>) : RecyclerView.Adapter<AddFriendsAdapter.Holder>(){
+class AddFriendsAdapter(val mContext: Context) : RecyclerView.Adapter<AddFriendsAdapter.Holder>(){
+
+    var peopleList = mutableListOf<PeopleData>()
+
+    fun getUserAt(position: Int) : PeopleData {
+        return peopleList[position]
+    }
+
+    fun setListData(data: MutableList<PeopleData>) {
+        peopleList = data
+    }
 
     interface OnItemClickListener {
-        fun onItemClick(view: View, position: Int)
+        fun onItemClick(position: Int)
     }
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -20,33 +32,28 @@ class AddFriendsAdapter(private val people: Array<People>) : RecyclerView.Adapte
     private lateinit var itemClickListener: OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val binding = ListFriendsBinding.inflate(LayoutInflater.from(parent.context))
+        val binding = ListAddFriendsBinding.inflate(LayoutInflater.from(mContext), parent, false)
         return Holder(binding)
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(people[position])
+        holder.name.text = peopleList[position].userName
+        holder.im.text = peopleList[position].userIm
     }
 
-    override fun getItemCount() = people.size
+    override fun getItemCount() = peopleList.size
 
-    inner class Holder(val binding: ListFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(val binding: ListAddFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
+        val name : TextView = binding.txtName
+        val im : TextView = binding.txtIm
 
         init {
-            binding.root.setOnClickListener {
+            binding.btnAddToUser.setOnClickListener {
                 val pos = absoluteAdapterPosition
                 if(pos != RecyclerView.NO_POSITION) {
-                    itemClickListener.onItemClick(binding.root, pos)
+                    itemClickListener.onItemClick(pos)
                 }
             }
-        }
-        fun bind(people: People) {
-            binding.imageView.setImageResource( when( people.gender ) {
-                EGender.MALE -> R.drawable.male
-                EGender.FEMALE -> R.drawable.female
-            })
-            binding.txtName.text = people.name
-            binding.txtIm.text = people.im
         }
     }
 }
